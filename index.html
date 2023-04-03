@@ -7,6 +7,7 @@
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <title>JS Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
     <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
@@ -22,32 +23,32 @@
                 setValue(0)
             }
             function handleInput(e) {
-                setValue(e.target.data_value)
+                setValue(parseInt(value + e.target.getAttribute("data_value"), 10));
             }
             return (
-                <>
-                <button id="equals" data_value="=">=</button>
-                <button id="zero" data_value="0">0</button>
-                <button id="one" data_value="1">1</button>
-                <button id="two" data_value="2">2</button>
-                <button id="three" data_value="3">3</button>
-                <button id="four" data_value="4">4</button>
-                <button id="five" data_value="5">5</button>
-                <button id="six" data_value="6">6</button>
-                <button id="seven" data_value="7">7</button>
-                <button id="eight" data_value="8">8</button>
-                <button id="nine" data_value="9">9</button>
+                <div className="mt-5">
+                <button id="equals" data_value="=" onClick={handleInput}>=</button>
+                <button id="zero" data_value="0" onClick={handleInput}>0</button>
+                <button id="one" data_value="1" onClick={handleInput}>1</button>
+                <button id="two" data_value="2" onClick={handleInput}>2</button>
+                <button id="three" data_value="3" onClick={handleInput}>3</button>
+                <button id="four" data_value="4" onClick={handleInput}>4</button>
+                <button id="five" data_value="5" onClick={handleInput}>5</button>
+                <button id="six" data_value="6" onClick={handleInput}>6</button>
+                <button id="seven" data_value="7" onClick={handleInput}>7</button>
+                <button id="eight" data_value="8" onClick={handleInput}>8</button>
+                <button id="nine" data_value="9" onClick={handleInput}>9</button>
 
-                <button id="add" data_value="+">add</button>
-                <button id="subtract" data_value="-">subtract</button>
-                <button id="multiply" data_value="*">multiply</button>
-                <button id="divide" data_value="/">divide</button>
+                <button id="add" data_value="+" >add</button>
+                <button id="subtract" data_value="-" >subtract</button>
+                <button id="multiply" data_value="*" >multiply</button>
+                <button id="divide" data_value="/" >divide</button>
 
-                <button id="decimal" data_value=".">.</button>
-                <button id="clear" onClick={handleClear}></button>
+                <button id="decimal" data_value="." onClick={handleInput}>.</button>
+                <button id="clear" onClick={handleClear}>Clear</button>
 
-                <div id="display" onChange={handleInput}>{value}</div>
-            </>
+                <div id="display">{value}</div>
+            </div>
             )
         }
 
