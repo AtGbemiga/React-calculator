@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <title>JS Calculator</title>
+</head>
+<body>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const App = () => {
+            const [value, setValue] = React.useState(0);
+
+            function handleClear() {
+                setValue(0)
+            }
+            function handleInput(e) {
+                setValue(e.target.data_value)
+            }
+            return (
+                <>
+                <button id="equals" data_value="=">=</button>
+                <button id="zero" data_value="0">0</button>
+                <button id="one" data_value="1">1</button>
+                <button id="two" data_value="2">2</button>
+                <button id="three" data_value="3">3</button>
+                <button id="four" data_value="4">4</button>
+                <button id="five" data_value="5">5</button>
+                <button id="six" data_value="6">6</button>
+                <button id="seven" data_value="7">7</button>
+                <button id="eight" data_value="8">8</button>
+                <button id="nine" data_value="9">9</button>
+
+                <button id="add" data_value="+">add</button>
+                <button id="subtract" data_value="-">subtract</button>
+                <button id="multiply" data_value="*">multiply</button>
+                <button id="divide" data_value="/">divide</button>
+
+                <button id="decimal" data_value=".">.</button>
+                <button id="clear" onClick={handleClear}></button>
+
+                <div id="display" onChange={handleInput}>{value}</div>
+            </>
+            )
+        }
+
+        const domContainer = document.getElementById('root');
+        const myRoot = ReactDOM.createRoot(domContainer);
+        myRoot.render(<App />)
+    </script>
+</body>
+</html>
